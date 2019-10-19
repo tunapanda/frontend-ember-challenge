@@ -7,6 +7,7 @@
 # dependencies
 /bower_components/
 /node_modules/
+package-lock.json
 
 # misc
 /.env*
@@ -23,3 +24,4 @@
 /.node_modules.ember-try/
 /bower.json.ember-try
 /package.json.ember-try
+
