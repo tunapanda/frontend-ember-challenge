@@ -1,4 +1,11 @@
 import Controller from '@ember/controller';
 
-export default class IndexController extends Controller {
-}
+
+export default Controller.extend({
+    actions: {
+        pinned() {
+            this.set('pinnedTask', arguments[0]);
+        }
+    },
+    pinnedTask: false
+});
