@@ -1,28 +1,28 @@
 <h1>Task List</h1>
 <h4>Pinned Task</h4>
 {{#if this.pinnedTask}}
-  <div class="list-group-item {{if this.pinnedTask.isComplete "is-complete"}}">
-    <div class="d-flex">
-      <h5 class="card-title flex-fill">
-        {{this.pinnedTask.name}}
-      </h5>
-      <div class="toggle-done ml-auto">
-        <div class="btn-group btn-group-sm" role="group">
-          <BsButton @type="secondary" onClick={{action (mut this.pinnedTask) false}}>Unpin</BsButton>
-          {{#if this.pinnedTask.isComplete}}
-            <BsButton @type="primary">Undo</BsButton>
-          {{else}}
-            <BsButton @type="primary">Done</BsButton>
-          {{/if}}
-        </div>
+<div class="list-group-item {{if this.pinnedTask.isComplete "is-complete"}}">
+  <div class="d-flex">
+    <h5 class="card-title flex-fill">
+      {{this.pinnedTask.name}}
+    </h5>
+    <div class="toggle-done ml-auto">
+      <div class="btn-group btn-group-sm" role="group">
+        <BsButton @type="secondary" onClick={{action (mut this.pinnedTask) false}}>Unpin</BsButton>
+        {{#if this.pinnedTask.isComplete}}
+        <BsButton @type="primary" onClick={{action (mut this.pinnedTask.isComplete) false}}>Undo</BsButton>
+        {{else}}
+        <BsButton @type="primary" onClick={{action (mut this.pinnedTask.isComplete) true}}>Done</BsButton>
+        {{/if}}
       </div>
     </div>
-    <div class="task-description">
-      {{this.pinnedTask.description}}
-    </div>
   </div>
+  <div class="task-description">
+    {{this.pinnedTask.description}}
+  </div>
+</div>
 {{else}}
-  No Pinned Tasks
+No Pinned Tasks
 {{/if}}
 <h4>Other Tasks</h4>
 <TaskList @onSentUp={{action "pinned"}} @tasks={{this.model}} />
