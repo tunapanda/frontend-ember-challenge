@@ -1,7 +1,9 @@
 import Component from '@ember/component';
-import { tagName } from '@ember-decorators/component';
 
-export default 
-@tagName('')
-class SingleTaskComponent extends Component {
-}
+export default Component.extend({
+    actions: {
+        pin_clicked() {
+            this.onSentUp(this.task);
+        }
+    }
+});
