@@ -6,7 +6,7 @@ import {
 export default
 class TaskListComponent extends Component {
     @action
-    receivedAction() {
-        this.onSentUp(arguments[0]);
+    toggled() {
+        this.onToggled();
     }
 }
