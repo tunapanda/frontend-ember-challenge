@@ -8,11 +8,11 @@
       </h5>
       <div class="toggle-done ml-auto">
         <div class="btn-group btn-group-sm" role="group">
-          <BsButton @type="secondary">Unpin</BsButton>
+          <BsButton @type="secondary" onClick={{action (mut this.pinnedTask) false}}>Unpin</BsButton>
           {{#if this.pinnedTask.isComplete}}
-            <BsButton @type="primary">Undo</BsButton>
+            <BsButton @type="primary" onClick={{action (mut this.pinnedTask.isComplete) false}}>Undo</BsButton>
           {{else}}
-            <BsButton @type="primary">Done</BsButton>
+            <BsButton @type="primary" onClick={{action (mut this.pinnedTask.isComplete) true}}>Done</BsButton>
           {{/if}}
         </div>
       </div>
@@ -25,7 +25,7 @@
   No Pinned Tasks
 {{/if}}
 <h4>Other Tasks</h4>
-<TaskList @tasks={{this.model}} />
+<TaskList @onSentUp={{action "pinned"}} @tasks={{this.model}} />
 
 <nav class="navbar navbar-light bg-light">
   <span class="navbar-text">
