@@ -1,7 +1,12 @@
 import Component from '@ember/component';
-import { tagName } from '@ember-decorators/component';
+import {
+  action
+} from '@ember/object';
 
-export default
-@tagName('')
-class TaskListComponent extends Component {
+export default 
+class SingleTaskComponent extends Component {
+  @action
+  recievedAction() {
+    this.onSentUp(arguments[0]);
+  }
 }
