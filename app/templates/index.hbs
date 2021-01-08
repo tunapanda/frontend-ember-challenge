@@ -8,7 +8,7 @@
       </h5>
       <div class="toggle-done ml-auto">
         <div class="btn-group btn-group-sm" role="group">
-          <BsButton @type="secondary">Unpin</BsButton>
+          <BsButton @type="secondary" onClick={{action (mut this.pinnedTask) null}}>Unpin</BsButton>
           {{#if this.pinnedTask.isComplete}}
             <BsButton @type="primary">Undo</BsButton>
           {{else}}
@@ -25,7 +25,7 @@
   No Pinned Tasks
 {{/if}}
 <h4>Other Tasks</h4>
-<TaskList @tasks={{this.model}} />
+<TaskList @tasks={{this.model}}  @setPinnedTask={{this.pinTask}}/>
 
 <nav class="navbar navbar-light bg-light">
   <span class="navbar-text">

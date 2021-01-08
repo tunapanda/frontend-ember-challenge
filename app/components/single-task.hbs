@@ -5,12 +5,8 @@
     </h5>
     <div class="toggle-done ml-auto">
       <div class="btn-group btn-group-sm" role="group">
-        <BsButton @type="secondary">Pin</BsButton>
-        {{#if this.task.isComplete}}
-          <BsButton @type="primary" onClick={{action (mut this.task.isComplete) false}}>Undo</BsButton>
-        {{else}}
-          <BsButton @type="primary" onClick={{action (mut this.task.isComplete) true}}>Done</BsButton>
-        {{/if}}
+        <BsButton @type="secondary" onClick={{ action this.setPinnedTask this.task }}>Pin</BsButton>
+        <ToggleComplete @task={{this.task}}/>
       </div>
     </div>
   </div>

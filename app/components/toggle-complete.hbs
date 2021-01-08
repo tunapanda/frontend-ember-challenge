@@ -1,0 +1,5 @@
+<BsButton 
+@type="primary" 
+onClick={{action (mut this.task.isComplete) (if this.task.isComplete false true)}}>
+    {{if this.task.isComplete "Undo" "Done"}}
+</BsButton>
