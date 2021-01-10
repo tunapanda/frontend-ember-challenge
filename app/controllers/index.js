@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
+import { action, computed } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class IndexController extends Controller {
@@ -17,4 +17,8 @@ export default class IndexController extends Controller {
         }
     }
 
+    @computed("model.@each.isComplete")
+    get completedTasks() {
+        return this.model.filterBy('isComplete', true).length;
+    }
 }
