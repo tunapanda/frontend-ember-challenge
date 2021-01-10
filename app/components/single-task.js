@@ -19,4 +19,9 @@ class SingleTaskComponent extends Component {
         this.task.isNotPinned = !this.isPinned;
         this.onPinSentUp(this.task);
     }
+
+    @action
+    toggleComplete() {
+        this.task.isComplete = !this.task.isComplete;
+    }
 }
