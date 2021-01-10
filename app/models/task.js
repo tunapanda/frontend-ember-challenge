@@ -10,4 +10,7 @@ export default class TaskModel extends Model {
 
   @attr('boolean')
   isComplete
+
+  @attr('boolean', { defaultValue: true })
+  isNotPinned
 }
