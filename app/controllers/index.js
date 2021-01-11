@@ -9,4 +9,9 @@ export default class IndexController extends Controller {
   setTaskAsPinned(task) {
     this.pinnedTask = task.toJSON();
   }
+
+  get completedTasks() {
+    const count = this.model.filter((task) => task.isComplete).length;
+    return count;
+  }
 }
