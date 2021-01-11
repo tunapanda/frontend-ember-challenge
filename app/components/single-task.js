@@ -10,11 +10,17 @@ class SingleTaskComponent extends Component {
 
   @action
   togglePinned() {
-    this.isPinned = !this.isPinned;
+    if (this.isPinned) {
+      this.setPinned(null);
+      this.isPinned = false;
+    } else {
+      this.setPinned(this.task);
+      this.isPinned = true;
+    }
   }
 
   @action
   toggleComplete() {
-    console.log(this.task);
+    this.task.isComplete = !this.task.isComplete;
   }
 }
