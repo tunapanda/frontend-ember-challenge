@@ -1,31 +1,12 @@
 <h1>Task List</h1>
 <h4>Pinned Task</h4>
-{{#if this.pinnedTask}}
-  <div class="list-group-item {{if this.pinnedTask.isComplete "is-complete"}}">
-    <div class="d-flex">
-      <h5 class="card-title flex-fill">
-        {{this.pinnedTask.name}}
-      </h5>
-      <div class="toggle-done ml-auto">
-        <div class="btn-group btn-group-sm" role="group">
-          <BsButton @type="secondary">Unpin</BsButton>
-          {{#if this.pinnedTask.isComplete}}
-            <BsButton @type="primary">Undo</BsButton>
-          {{else}}
-            <BsButton @type="primary">Done</BsButton>
-          {{/if}}
-        </div>
-      </div>
-    </div>
-    <div class="task-description">
-      {{this.pinnedTask.description}}
-    </div>
-  </div>
+{{#if this.pinnedTasks}}
+  <TaskList @tasks={{this.pinnedTasks}} @toggleTaskPin={{this.toggleTaskPin}} />
 {{else}}
   No Pinned Tasks
 {{/if}}
 <h4>Other Tasks</h4>
-<TaskList @tasks={{this.model}} />
+<TaskList @tasks={{this.unpinnedTasks}} @toggleTaskPin={{this.toggleTaskPin}}/>
 
 <nav class="navbar navbar-light bg-light">
   <span class="navbar-text">
