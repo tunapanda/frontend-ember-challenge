@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+import { action,computed } from '@ember/object';
 
 
 export default class IndexController extends Controller {
@@ -11,5 +11,12 @@ export default class IndexController extends Controller {
     @action
     pinTask(task) {
         this.pinnedTask = task.toJSON();
+    }
+
+    // Computed property that automatically counts the number of completed tasks
+    @computed('model.@each.isComplete')
+    get completedTasks() {
+        const n = this.model.filterBy('isComplete', true).get('length');
+        return n
     }
 }
