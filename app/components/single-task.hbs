@@ -13,6 +13,8 @@
         {{else}}
         <BsButton @type="primary" onClick={{action (mut this.task.isComplete) true}}>Done</BsButton>
         {{/if}}
+
+        <ToggleComplete @isComplete={{this.task.isComplete}} @onClick={{this.toggleComplete}} />
       </div>
     </div>
   </div>

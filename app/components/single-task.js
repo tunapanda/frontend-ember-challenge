@@ -12,4 +12,9 @@ class SingleTaskComponent extends Component {
   togglePinned() {
     this.isPinned = !this.isPinned;
   }
+
+  @action
+  toggleComplete() {
+    console.log(this.task);
+  }
 }
