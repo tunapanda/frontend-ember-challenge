@@ -9,11 +9,11 @@
       <div class="toggle-done ml-auto">
         <div class="btn-group btn-group-sm" role="group">
           <BsButton @type="secondary" onClick={{action (mut this.pinnedTask) null}} >Unpin</BsButton>
-          {{!-- <BsButton @type="primary" onClick={{action (mut this.pinnedTask.isComplete) (if this.pinnedTask.isComplete false true)}}>
+          <BsButton @type="primary" onClick={{action (mut this.pinnedTask.isComplete) (if this.pinnedTask.isComplete false true)}}>
           {{if this.pinnedTask.isComplete "Undo" "Done"}}
-          </BsButton> --}}
-          
-          <ToggleComplete on-change=(action (m taskComplete )) @text="{{if this.task.isComplete "Undo" "Done"}}"/>
+          </BsButton>
+
+          {{!-- <ToggleComplete on-change=(action (m taskComplete )) @text="{{if this.task.isComplete "Undo" "Done"}}"/> --}}
 
         </div>
       </div>
