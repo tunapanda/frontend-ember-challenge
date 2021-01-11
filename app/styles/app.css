@@ -1,0 +1,5 @@
+.is-complete {
+  opacity: 0.6;
+  text-decoration: line-through;
+  background: #d1d1d1;
+}

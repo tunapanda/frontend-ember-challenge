@@ -1,0 +1,20 @@
+<li class="list-group-item {{if this.task.isComplete "is-complete"}}">
+  <div class="d-flex">
+    <h5 class="card-title flex-fill">
+      {{this.task.name}}
+    </h5>
+    <div class="toggle-done ml-auto">
+      <div class="btn-group btn-group-sm" role="group">
+        <BsButton @type="secondary">Pin</BsButton>
+        {{#if this.task.isComplete}}
+          <BsButton @type="primary" onClick={{action (mut this.task.isComplete) false}}>Undo</BsButton>
+        {{else}}
+          <BsButton @type="primary" onClick={{action (mut this.task.isComplete) true}}>Done</BsButton>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="task-description">
+    {{this.task.description}}
+  </div>
+</li>
