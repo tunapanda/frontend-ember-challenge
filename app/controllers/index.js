@@ -13,6 +13,11 @@ export default class IndexController extends Controller {
         this.pinnedTask = task.toJSON();
     }
 
+    @action
+    taskComplete(){
+        this.pinnedTask.isComplete = true;
+    }
+
     // Computed property that automatically counts the number of completed tasks
     @computed('model.@each.isComplete')
     get completedTasks() {
