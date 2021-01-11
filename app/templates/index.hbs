@@ -9,11 +9,7 @@
       <div class="toggle-done ml-auto">
         <div class="btn-group btn-group-sm" role="group">
           <BsButton @type="secondary">Unpin</BsButton>
-          {{#if this.pinnedTask.isComplete}}
-            <BsButton @type="primary">Undo</BsButton>
-          {{else}}
-            <BsButton @type="primary">Done</BsButton>
-          {{/if}}
+          <ToggleComplete @task={{this.pinnedTask}} />
         </div>
       </div>
     </div>
@@ -25,7 +21,7 @@
   No Pinned Tasks
 {{/if}}
 <h4>Other Tasks</h4>
-<TaskList @tasks={{this.model}} />
+<TaskList @tasks={{this.model}} @setTaskAsPinned={{this.setTaskAsPinned}} />
 
 <nav class="navbar navbar-light bg-light">
   <span class="navbar-text">
