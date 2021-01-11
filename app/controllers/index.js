@@ -4,7 +4,7 @@ import {filterBy} from '@ember/object/computed';
 
 export default class IndexController extends Controller {
 
-  isPinnedTask=false;
+  isPinnedTask = false;
 
   @action
   toggleTaskPin(task) {
@@ -21,5 +21,13 @@ export default class IndexController extends Controller {
      */
     return [...this.model.filterBy('isPinned', undefined),
       ...this.model.filterBy('isPinned', false)];
+  }
+
+  get completedTasks() {
+    /**
+     * Get the total count of completed tasks
+     * returns @number: count of all tasks marked as complete
+     */
+    return this.model.filterBy('isComplete').length;
   }
 }
