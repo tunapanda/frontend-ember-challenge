@@ -8,11 +8,10 @@
         <BsButton @type="secondary" {{on "click" (fn @toggleTaskPin this.task)}}>
           {{if this.task.isPinned "Unpin" "Pin" }}
         </BsButton>
-        {{#if this.task.isComplete}}
-          <BsButton @type="primary" onClick={{action (mut this.task.isComplete) false}}>Undo</BsButton>
-        {{else}}
-          <BsButton @type="primary" onClick={{action (mut this.task.isComplete) true}}>Done</BsButton>
-        {{/if}}
+
+        <ToggleComplete @toggleComplete={{this.toggleComplete}} @isComplete={{this.task.isComplete}}>
+        </ToggleComplete>
+
       </div>
     </div>
   </div>
