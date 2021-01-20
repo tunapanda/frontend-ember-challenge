@@ -6,10 +6,8 @@
     <div class="toggle-done ml-auto">
       <div class="btn-group btn-group-sm" role="group">
         <BsButton @type="secondary" onClick={{action  this.setPinnedTask this.task}} >Pin</BsButton>
-        <BsButton @type="primary" onClick={{action (mut this.task.isComplete) (if this.task.isComplete false true)}}>
-          {{if this.task.isComplete "Undo" "Done"}}
-        </BsButton>
-        {{!-- <ToggleComplete on-change=(action (m taskComplete )) @text="{{if this.task.isComplete "Undo" "Done"}}"/> --}}
+        
+         <ToggleComplete @onChange= {{this.taskComplete}} @text={{if this.task.isComplete "Undo" "Done"}}/>
       </div>
     </div>
   </div>
