@@ -1,7 +1,7 @@
 <div class="card">
   <ul class="list-group list-group-flush">
     {{#each this.tasks as |task|}}
-      <SingleTask @task={{task}} />
+      <SingleTask @task={{task}} @setPinnedTask={{ this.pinnedTask}} />
     {{/each}}
   </ul>
 </div>
